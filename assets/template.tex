@@ -1,0 +1,39 @@
+﻿% Compile: xelatex cheat.tex   (or python scripts/build.py cheat.tex --pages 2)
+\documentclass{ctexart}
+\usepackage[a4paper,landscape,margin=2mm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{multicol,array}
+\usepackage[table]{xcolor}
+\usepackage{enumitem}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}\setlength{\parskip}{0pt}
+\setlength{\columnsep}{3mm}\setlength{\columnseprule}{0.2pt}
+\ifdefined\FS\else\def\FS{4.0}\def\LH{4.5}\fi
+\newcommand{\bodysize}{\fontsize{\FS pt}{\LH pt}\selectfont}
+\definecolor{cb}{RGB}{20,70,150}\definecolor{cr}{RGB}{190,20,20}
+\definecolor{cg}{RGB}{0,115,60}\definecolor{co}{RGB}{200,100,0}
+\newcommand{\B}[1]{\textcolor{cb}{\textbf{#1}}}
+\newcommand{\R}[1]{\textcolor{cr}{\textbf{#1}}}
+\newcommand{\G}[1]{\textcolor{cg}{\textbf{#1}}}
+\setlength{\fboxsep}{0.3pt}
+\newcommand{\Eg}[1]{\colorbox{co!13}{\textcolor{co}{\textbf{#1}}}}
+\newcommand{\sect}[1]{\par\vskip1.2pt\noindent{\setlength{\fboxsep}{0.5pt}\colorbox{cb}{\parbox{\dimexpr\linewidth-1pt}{\color{white}\bfseries\fontsize{6.4pt}{7.2pt}\selectfont #1}}}\par\nopagebreak\vskip0.4pt}
+\newcommand{\sub}[1]{\par\vskip0.8pt\noindent{\setlength{\fboxsep}{0.4pt}\colorbox{cb!16}{\parbox{\dimexpr\linewidth-0.8pt}{\color{cb}\bfseries\fontsize{5.6pt}{6.3pt}\selectfont #1}}}\par\nopagebreak\vskip0.2pt}
+\newcommand{\why}[2]{\emph{#1}\\ #2\par}
+\newcolumntype{Y}[1]{>{\raggedright\arraybackslash}p{#1}}
+\renewcommand{\arraystretch}{1.0}\setlength{\tabcolsep}{1.2pt}
+\begin{document}
+\bodysize
+\begin{multicols*}{4}
+\sect{1.1 Example section}
+\G{Kinetic energy} $E_k=\tfrac12mv^2$ (J). \R{Trap:} $v$ in m/s, not km/h.\\
+{\setlength{\tabcolsep}{1pt}\begin{tabular}{|Y{10mm}|Y{14mm}|Y{22mm}|}
+\hline\rowcolor{cb!12}\B{Symbol}&\B{English}&\B{Meaning}\\\hline
+$m$&mass&in kg\\\hline
+$E_k$&kinetic energy&energy of motion\\\hline
+\end{tabular}}
+\par\Eg{Example 1} Given $m=2$ kg, $v=3$ m/s. Find $E_k$.
+Solution: $E_k=\tfrac12mv^2$ $=\tfrac12\cdot2\cdot3^2$ $=9$ J.
+\par\why{Explain why doubling the speed quadruples the kinetic energy.}{$E_k\propto v^2$ (平方关系, quadratic dependence)。}
+\end{multicols*}
+\end{document}
